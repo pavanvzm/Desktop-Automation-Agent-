@@ -1,0 +1,119 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "win11-omniagent"
+version = "0.1.0"
+description = "A Multimodal Desktop Automation Orchestrator for Windows 11"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [
+    {name = "Win11-OmniAgent Team", email = "team@omniagent.dev"}
+]
+keywords = [
+    "automation",
+    "agent",
+    "desktop",
+    "windows",
+    "llm",
+    "ai",
+    "multimodal",
+    "orchestration"
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries :: Application Frameworks",
+]
+
+dependencies = [
+    "httpx>=0.25.0",
+    "psutil>=5.9.0",
+    "chromadb>=0.4.0",
+    "croniter>=2.0.0",
+    "feedparser>=6.0.0",
+    "pillow>=10.0.0",
+    "pyperclip>=1.8.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-asyncio>=0.21.0",
+    "pytest-cov>=4.1.0",
+    "black>=23.0.0",
+    "ruff>=0.1.0",
+    "mypy>=1.7.0",
+]
+browser = [
+    "playwright>=1.40.0",
+]
+voice = [
+    "openai-whisper>=20231117",
+]
+gpu = [
+    "GPUtil>=1.4.0",
+]
+all = [
+    "win11-omniagent[dev,browser,voice,gpu]",
+]
+
+[project.scripts]
+omniagent = "src.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/omniagent/win11-omniagent"
+Documentation = "https://omniagent.dev/docs"
+Repository = "https://github.com/omniagent/win11-omniagent"
+Issues = "https://github.com/omniagent/win11-omniagent/issues"
+Changelog = "https://github.com/omniagent/win11-omniagent/releases"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*"]
+
+[tool.setuptools.package-data]
+src = ["**/*.md", "**/*.txt"]
+
+[tool.black]
+line-length = 88
+target-version = ['py311']
+
+[tool.ruff]
+line-length = 88
+target-version = "py311"
+select = ["E", "F", "I", "N", "W", "UP", "B", "C4"]
+
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = false
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+markers = [
+    "slow: marks tests as slow",
+    "integration: marks tests as integration tests",
+    "e2e: marks tests as end-to-end tests",
+]
+
+[tool.coverage.run]
+source = ["src"]
+omit = ["tests/*", "**/__pycache__/*"]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+]
