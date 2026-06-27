@@ -1,3 +1,4 @@
+from __future__ import annotations
 """YouTube caching layer using vector database."""
 
 import json

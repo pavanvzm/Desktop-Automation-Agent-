@@ -1,3 +1,4 @@
+from __future__ import annotations
 """Hybrid memory system with short-term and long-term (RAG) components."""
 
 import json
@@ -9,7 +10,13 @@ from datetime import datetime, timedelta
 from pathlib import Path
 from typing import Any
 
-import numpy as np
+# NumPy is optional - used for embeddings if available
+try:
+    import numpy as np
+    NUMPY_AVAILABLE = True
+except ImportError:
+    NUMPY_AVAILABLE = False
+    np = None
 
 from .state import Message, MessageRole, ScreenContext
 

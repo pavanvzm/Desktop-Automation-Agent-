@@ -1,3 +1,4 @@
+from __future__ import annotations
 """Alert routing and notification system."""
 
 import asyncio

@@ -1,3 +1,4 @@
+from __future__ import annotations
 """Anomaly detection for system vitals."""
 
 import asyncio

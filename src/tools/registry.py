@@ -1,3 +1,4 @@
+from __future__ import annotations
 """Tool registry for default tools."""
 
 from ..core.tool_schema import get_registry, ToolRegistry

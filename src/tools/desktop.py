@@ -1,3 +1,4 @@
+from __future__ import annotations
 """Desktop application automation tools using UI Automation API."""
 
 import json

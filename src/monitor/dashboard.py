@@ -1,3 +1,4 @@
+from __future__ import annotations
 """Dashboard data provider for real-time monitoring UI."""
 
 import asyncio

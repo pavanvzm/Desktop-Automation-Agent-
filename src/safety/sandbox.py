@@ -1,3 +1,4 @@
+from __future__ import annotations
 """Action sandboxing and dry-run execution."""
 
 import asyncio

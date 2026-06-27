@@ -1,3 +1,4 @@
+from __future__ import annotations
 """Browser automation tools using Playwright."""
 
 import asyncio

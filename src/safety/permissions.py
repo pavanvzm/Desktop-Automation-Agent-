@@ -1,3 +1,4 @@
+from __future__ import annotations
 """Permission management for agent actions."""
 
 from dataclasses import dataclass, field

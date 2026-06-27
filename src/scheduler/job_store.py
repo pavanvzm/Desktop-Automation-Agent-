@@ -1,5 +1,7 @@
 """SQLite-backed job store for persistent job registry."""
 
+from __future__ import annotations
+
 import json
 import sqlite3
 import uuid

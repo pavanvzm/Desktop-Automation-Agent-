@@ -1,3 +1,4 @@
+from __future__ import annotations
 """Agent state management and data models."""
 
 from dataclasses import dataclass, field

@@ -1,3 +1,4 @@
+from __future__ import annotations
 """YouTube video summarization using LLM."""
 
 import asyncio

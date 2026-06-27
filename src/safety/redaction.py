@@ -1,3 +1,4 @@
+from __future__ import annotations
 """PII detection and redaction for privacy."""
 
 import re
@@ -35,10 +36,10 @@ class PIIRedactor:
                 name="email",
                 pattern=r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b',
             ),
-            # Phone numbers (US formats)
+            # Phone numbers (US formats) - improved pattern
             RedactionPattern(
                 name="phone_us",
-                pattern=r'\b(?:\+?1[-.]?)?\(?[0-9]{3}\)?[-.]?[0-9]{3}[-.]?[0-9]{4}\b',
+                pattern=r'\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}',
             ),
             # SSN
             RedactionPattern(

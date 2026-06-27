@@ -1,3 +1,4 @@
+from __future__ import annotations
 """Windows Task Scheduler bridge for hybrid execution."""
 
 import subprocess

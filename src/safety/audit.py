@@ -1,3 +1,4 @@
+from __future__ import annotations
 """Immutable audit trail for all agent actions."""
 
 import hashlib

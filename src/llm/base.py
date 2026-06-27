@@ -1,3 +1,4 @@
+from __future__ import annotations
 """Base LLM client interface."""
 
 from abc import ABC, abstractmethod

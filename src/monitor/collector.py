@@ -1,3 +1,4 @@
+from __future__ import annotations
 """System vitals telemetry collection."""
 
 import asyncio

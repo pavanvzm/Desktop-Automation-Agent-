@@ -1,3 +1,4 @@
+from __future__ import annotations
 """
 Win11-OmniAgent Safety Package
 

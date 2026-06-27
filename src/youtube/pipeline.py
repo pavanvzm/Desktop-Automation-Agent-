@@ -1,3 +1,4 @@
+from __future__ import annotations
 """Complete YouTube intelligence pipeline."""
 
 from .transcriber import TranscriptExtractor, TranscriptResult

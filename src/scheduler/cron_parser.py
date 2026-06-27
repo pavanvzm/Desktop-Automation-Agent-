@@ -1,3 +1,4 @@
+from __future__ import annotations
 """Natural language to cron expression parser."""
 
 import re
@@ -27,12 +28,13 @@ class CronParser:
 
     def _compile_patterns(self) -> None:
         """Compile regex patterns for cron validation."""
+        # Simplified patterns that accept common cron expressions
         self._patterns = {
-            "minute": re.compile(r"^(\*|([0-9]|1[0-9]|2[0-9]|3[0-9]|4[0-9]|5[0-9])(\/(\d+))?|([0-9],[0-9]+)+)$"),
-            "hour": re.compile(r"^(\*|([0-9]|1[0-9]|2[0-3])(\/(\d+))?|([0-9],[0-9]+)+)$"),
-            "day_of_month": re.compile(r"^(\*|([1-9]|1[0-9]|2[0-9]|3[0-1])(\/(\d+))?|L|L-(\d+)|([0-9],[0-9]+)+)$"),
-            "month": re.compile(r"^(\*|([1-9]|1[0-2])(\/(\d+))?|([a-zA-Z]{3},?)+|([0-9],[0-9]+)+)$"),
-            "day_of_week": re.compile(r"^(\*|([0-6])(\/(\d+))?|([a-zA-Z]{3},?)+|([0-9],[0-9]+)+)$"),
+            "minute": re.compile(r"^(\*|(\*\/)?\d{1,2}(-\d{1,2})?(,\d{1,2}(-\d{1,2})?)*)$"),
+            "hour": re.compile(r"^(\*|(\*\/)?\d{1,2}(-\d{1,2})?(,\d{1,2}(-\d{1,2})?)*)$"),
+            "day_of_month": re.compile(r"^(\*|(\*\/)?\d{1,2}(-\d{1,2})?(,\d{1,2}(-\d{1,2})?)*|L|L-\d+)$"),
+            "month": re.compile(r"^(\*|(\*\/)?\d{1,2}(-\d{1,2})?(,\d{1,2}(-\d{1,2})?)*|[a-zA-Z]{3}(,[a-zA-Z]{3})*)$"),
+            "day_of_week": re.compile(r"^(\*|(\*\/)?\d{1}(-\d{1})?(,\d{1}(-\d{1})?)*|[a-zA-Z]{3}(,[a-zA-Z]{3})*)$"),
         }
 
     def parse(self, cron_expr: str) -> ParsedSchedule:

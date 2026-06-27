@@ -1,3 +1,4 @@
+from __future__ import annotations
 """Transcript extraction for YouTube videos."""
 
 import asyncio

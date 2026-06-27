@@ -1,3 +1,4 @@
+from __future__ import annotations
 """Rate limiting and circuit breaker patterns."""
 
 import asyncio

@@ -1,3 +1,4 @@
+from __future__ import annotations
 """Tool calling protocol with strict JSON schemas."""
 
 from dataclasses import dataclass, field

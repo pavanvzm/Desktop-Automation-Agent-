@@ -1,3 +1,4 @@
+from __future__ import annotations
 """LLM client with support for multiple providers."""
 
 import os

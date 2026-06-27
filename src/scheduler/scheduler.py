@@ -1,3 +1,4 @@
+from __future__ import annotations
 """Main task scheduler implementation."""
 
 import asyncio

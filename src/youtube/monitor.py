@@ -1,3 +1,4 @@
+from __future__ import annotations
 """YouTube channel monitoring using RSS feeds."""
 
 import asyncio

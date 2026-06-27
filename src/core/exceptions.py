@@ -1,3 +1,4 @@
+from __future__ import annotations
 """Custom exceptions for the Win11-OmniAgent core."""
 
 
